@@ -8,6 +8,11 @@ app.listen(port, () => {
   console.log('Listening on port', port);
 });
 
+app.get('/', async (req, res) => {
+    console.log(`Email Service: health check`);
+    res.status(200).send('Health check..');
+})
+
 app.post('/', async (req, res) => {
   const notification = decodeBase64Json(req.body.message.data);
   try {
